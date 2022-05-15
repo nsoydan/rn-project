@@ -17,7 +17,10 @@ const renderItem = ({ item }) => (
     <Item title={item.title} />
 );
 
-
+componentDidMount(){
+    
+     
+}
 
 
 function YolHaritasiListesiScreen() {

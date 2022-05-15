@@ -22,11 +22,13 @@ const styles = StyleSheet.create({
     container:{
         backgroundColor:'white',
         width:'80%',
+        height:50,
         borderColor: '#e8e8e8',
         borderWidth:1,
         borderRadius: 5,
         paddingHorizontal:10,
         marginVertical:5,
+        
 
 
     },

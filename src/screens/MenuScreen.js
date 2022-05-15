@@ -6,7 +6,7 @@ import React from 'react'
 function MenuScreen ({navigation}){
   
   const yolHaritasiPressed=()=>{
-    console.warn("tuşa basıldı");
+    
     navigation.navigate('YolHaritasiListesiScreen');
   }
 
