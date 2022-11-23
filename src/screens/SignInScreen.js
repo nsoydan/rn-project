@@ -21,7 +21,7 @@ function SignInScreen({navigation}) {
 
     const handleLogin=()=>{
  
-    //   fetch('http://88.225.241.198:887/api/token/',{
+    //   fetch('http://127.0.0.1:8000/api/token/',{
     //     method:"POST",
     //     headers:{                 
     //         "content-type":"application/json",
@@ -41,7 +41,7 @@ function SignInScreen({navigation}) {
 
       axios({ 
         method: 'POST',
-        url:"http://88.225.241.198:887/api/token/",
+        url:"http://127.0.0.1:8000:8000/api/token/",
         data:{
           username:username,
           password:password
@@ -69,7 +69,7 @@ function SignInScreen({navigation}) {
         <Text>"Daha yeşil bir dünya için..."</Text>
         <CustomInput placeholder="Username" value={username} setValue={setUsername} />
         <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true}/>
-        <CustomButton text="Login"  onPress={handleLogin} />
+        <CustomButton text="Giriş"  onPress={handleLogin} />
      </View>
     );
   }

@@ -1,4 +1,4 @@
-import { View, Text,Button } from 'react-native'
+import { View, Text,Button,Image} from 'react-native'
 import React from 'react'
 import { FAB } from 'react-native-elements';
 import { useSelector } from 'react-redux';
@@ -12,7 +12,7 @@ const TodoDetailScreen = ({route,navigation}) => {
   const userFirstName = useSelector((state) => state.user.user.first_name)
   const todos = useSelector((state) => state.todos.todos)
   const token=useSelector((state)=>state.token.value)
-  //console.log("USER NAME :",userFirstName);
+  console.log("USER NAME :",userFirstName);
   //console.log("TOKEN:",token)
   //console.log("++++++++++",todos);
 
@@ -28,7 +28,7 @@ const TodoDetailScreen = ({route,navigation}) => {
     console.log("onDelete çalıştı+++++++++++++++++");
     
 
-     fetch('http://88.225.241.198:887/api/todo/' + id,{
+     fetch('http://127.0.0.1:8000/api/todo/' + id,{
             method:"DELETE",
             headers:{                 
               "content-type":"application/json",
@@ -73,6 +73,7 @@ const TodoDetailScreen = ({route,navigation}) => {
       <Text>{todo.talepEden}</Text>
       <Text>{todo.isBitisTarihi}</Text>
       <Text>{todo.isiYapan}</Text>
+      <Image source={{ uri: todo.ilkfoto }} style={{ width: 200, height: 200 }} />
       
         
       <DeleteButton />

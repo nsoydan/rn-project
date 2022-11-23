@@ -1,7 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit'
 export const userSlice=createSlice({
     name: 'user',
-    initialState:{ },  
+    initialState:{
+        user:{},
+    },  
     reducers:{
         setupUser:(state,action) => {
         console.log("*******************setupUser içindeyiz***************");

@@ -69,10 +69,10 @@ function TodoScreen({route,navigation}) {
     );
  
 
-    const loadProfile=()=>{
+    const loadProfile=async ()=>{
         console.log("loadProfile  içindeyiz");
         
-        fetch('http://88.225.241.198:887/api/user/'+route.params.username,{
+       await  fetch('http://127.0.0.1:8000/api/user/'+route.params.username,{
             method:"GET",
             headers:{                 
                 "content-type":"application/json",
@@ -80,15 +80,18 @@ function TodoScreen({route,navigation}) {
             },
 
         }).then(response=>response.json())
-        .then(data=>{dispatch(setupUser(data));console.log("User çağrıldı 200 response geldi");})
+        .then(data=>{
+            dispatch(setupUser(data));
+            console.log("User çağrıldı 200 response geldi --> ",data);
+        })
         .catch(error=>console.log(error))
         
     }
 
-    const loadData=()=>{
+    const loadData=async ()=>{
         console.log("loadData içindeyiz");
         
-        fetch('http://88.225.241.198:887/api/todo',{
+        await fetch('http://127.0.0.1:8000/api/todo',{
             method:"GET",
             headers:{                 
                 "content-type":"application/json",
@@ -108,8 +111,8 @@ function TodoScreen({route,navigation}) {
     useEffect(()=>{
         console.log("UseEffect in içindeyiz");
         loadProfile();
-        loadData();
-        
+        //loadData();
+        navigation.addListener('focus', () => loadData());
 
 
     },[])    
